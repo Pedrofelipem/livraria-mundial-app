@@ -1,0 +1,12 @@
+{
+  "name": "Projeto-livraria",
+  "displayName": "Projeto-livraria",
+  "expo": {
+    "name": "Projeto-livraria",
+    "slug": "Projeto-livraria",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
