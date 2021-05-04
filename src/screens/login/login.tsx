@@ -4,6 +4,7 @@ import { View, StyleSheet, Text, KeyboardAvoidingView, Image, ImageBackground, T
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {useNavigation} from '@react-navigation/core';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export interface LoginScreenProps {
 }
@@ -21,10 +22,13 @@ export function LoginScreen (props: LoginScreenProps) {
         else
           setErro('Email ou senha incorreta')
       }
-   
+       
     return (
         <ImageBackground source={require('../../assets/imagens/Img-fundo-app.jpg')} style={styles.imageBackground}>
         <StatusBar/>
+        <TouchableOpacity style={styles.header} onPress={() => nav.navigate('conta')}>
+          <MaterialIcons name='arrow-back' size={24}/>
+        </TouchableOpacity>
         <Formik
               initialValues={{email:'',senha:''}}
               validationSchema={Yup.object().shape({
@@ -60,57 +64,62 @@ export function LoginScreen (props: LoginScreenProps) {
 }
 
 const styles = StyleSheet.create({
-    imageBackground:{
-      width:'100%',
-      height:'100%',
-      flex: 1,
-      alignItems:'center',
-      justifyContent:'center',
-    },
-    erroLogin:{
-      textAlign:'center',
-      fontSize:20,
-      color:'red',
-      marginTop: -15,
-    },
-    containerLogo:{
-      flex: 1,
-      justifyContent:'center',
-    },
-    logo:{
-      height: 180,
-      marginTop:100
-    },
-    container:{
-      flex: 1,
-      alignItems:'center',
-      justifyContent:'center',
-      width: '90%',
-      paddingBottom: 150
-    },
-    input:{
-      backgroundColor:'#FFF',
-      width:'90%',
-      marginBottom: 15,
-      color:'#222',
-      fontSize: 17,
-      borderRadius: 7,
-      padding: 12
-    },
-    erro:{
-      color:'white',
-      textAlign:'right',
-      fontSize:15
-  
-    },
-    submitText:{
-      color:'#FFF',
-      fontSize: 18
-    },
-    btnRegister:{
-      marginTop: 10
-    },
-    registerText:{
-      color:'#FFF'
-    }
-  })
+imageBackground:{
+  width:'100%',
+  height:'100%',
+  flex: 1,
+  alignItems:'center',
+  justifyContent:'center',
+},
+header:{
+  backgroundColor:'#003366',
+  padding: 18,
+  width:'100%'
+},
+erroLogin:{
+  textAlign:'center',
+  fontSize:20,
+  color:'red',
+  marginTop: -15,
+},
+containerLogo:{
+  flex: 1,
+  justifyContent:'center',
+},
+logo:{
+  height: 180,
+  marginTop:100
+},
+container:{
+  flex: 1,
+  alignItems:'center',
+  justifyContent:'center',
+  width: '90%',
+  paddingBottom: 150
+},
+input:{
+  backgroundColor:'#FFF',
+  width:'90%',
+  marginBottom: 15,
+  color:'#222',
+  fontSize: 17,
+  borderRadius: 7,
+  padding: 12
+},
+erro:{
+  color:'white',
+  textAlign:'right',
+  fontSize:15
+
+},
+submitText:{
+  color:'#FFF',
+  fontSize: 18
+},
+btnRegister:{
+  marginTop: 10
+},
+registerText:{
+  color:'#FFF'
+}
+})

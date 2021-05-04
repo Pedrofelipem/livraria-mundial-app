@@ -1,87 +1,83 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, StatusBar, Image, } from 'react-native';
+import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, FlatList, ScrollView } from 'react-native';
+import {ItemProduto} from'./components';
+import { MaterialIcons } from '@expo/vector-icons';
+import {useNavigation} from '@react-navigation/core';
+import { Produto } from '../../models/produto';
 
 export interface ProdutoScreeProps {
+    
 }
 
 export function ProdutoScreen (props: ProdutoScreeProps) {
+
+    const nav = useNavigation()
+    const ProdutoFlat: Produto[] = [
+        {
+          titulo:'A surtiu arte de ligar o foda-se',
+          id:'1', 
+          imagem: require('../../assets/imagens/img-arte.jpg'),
+          preco:'49,99'
+        }
+    ]
     return (
-        <View style={styles.background}>
+        
+        <ScrollView>
             <StatusBar/>
-            <View style={styles.conteinerProduto}>    
-                <View style={styles.conteinerImg}>
-                    <Text style={styles.titulo}>A SURTIU ARTE DE LIGAR O FODA-SE</Text>
-                    <Image style={styles.imgHomem} source={require('../../assets/imagens/img-arte.jpg')}/>
-                </View>
-                <View style={styles.conteinerInfo}>
-                    <View style={{flexDirection:'row', justifyContent:'space-around',}}>
-                        <Text style={styles.info}>ISBN</Text>
-                        <Text style={styles.info}>AUTOR</Text>
-                        <Text style={styles.info}>IDOMA</Text>
-                        <Text style={styles.info}>EDITORA</Text>    
-                    </View>
-                    <View style={{flexDirection:'row', justifyContent:'space-around',}}>
-                        <Text style={styles.info}>05105101</Text>
-                        <Text style={styles.info}>Mark Manson</Text>
-                        <Text style={styles.info}>Português</Text>
-                        <Text style={styles.info}>Intrínseca</Text>    
-                    </View>
-                    <View>
-                        <Text style={styles.descricao}>Descrição</Text>
-                        <Text>
-                        Mark Manson usa toda a sua sagacidade de escritor e seu olhar crítico para propor um novo caminho rumo a uma vida melhor, mais coerente com a realidade e consciente dos nossos limites. E ele faz isso da melhor maneira.
-                        Como um verdadeiro amigo, Mark se senta ao seu lado e diz, olhando nos seus olhos: você não é tão especial. Ele conta umas piadas aqui, dá uns exemplos inusitados ali, joga umas verdades na sua cara e pronto, você já se sente
-                        muito mais alerta e capaz de enfrentar esse mundo cão.
-                        Para os céticos e os descrentes, mas também para os amantes do gênero, enfim uma abordagem franca e inteligente que vai ajudar você a descobrir o que é realmente importante na sua vida, e f*da-se o resto.
-                        </Text>
-                    </View>
-                </View>
+            <TouchableOpacity style={styles.header} onPress={() => nav.navigate('conta')}>
+            <MaterialIcons name='arrow-back' size={24}/>
+            </TouchableOpacity>
+            <View style={styles.conteinerLogoFrete}>
+                <Image style={styles.logoFrete} source={require('../../assets/imagens/frete.png')}/>
+                <Text style={styles.textFrete}>FRETE GRÁTIS ACIMA DE R$ 89,99*</Text>
+                <Text style={styles.textRegulamento}>*CONSUlTE NO REGULAMENTO AS REGIÕES PARTICIPANTES.</Text>
             </View>
-        </View>
+            <FlatList 
+                data={ProdutoFlat} 
+                keyExtractor={(item) => String(item.id)}
+                renderItem={({item}) =>(
+                <ItemProduto 
+                produto={item} 
+                />
+                )}
+            />  
+        </ScrollView>   
     );
 }
-const styles = StyleSheet.create({
-    background:{
-        width:'100%',
-        height:'100%',
-        backgroundColor:'#87CEFA'
-    },
-    titulo:{
-        padding:5,
-        fontSize: 20,
-        fontWeight:'bold'
-        
-    },
-    imgHomem:{
-        height: 350,
-        width: 220, 
-        borderRadius: 5,
-    },
-    conteinerImg:{
-        padding:7,
-    },
-    conteinerProduto:{
-        marginTop:50,  
-    },
-    info:{
-        color:'white',
-        fontWeight:'bold',
-    },
-    
-    
-    conteinerInfo:{
-        backgroundColor:'#34495E',
-        padding:20,
-        marginTop:20,
-        borderRadius: 5,
+const styles = StyleSheet.create({  
 
-    },
-    descricao:{
-        fontSize:20,
-        fontWeight:'bold',
-        padding: 7,
-
-    },
-      
-
+header:{
+    backgroundColor:'#003366',
+    padding: 18,
+    fontSize: 18,
+    fontWeight:'bold',
+},
+conteinerLogoFrete:{
+    backgroundColor:'#00334d',
+    alignItems:'center',
+    justifyContent:'center',
+    padding:10,
+},
+    logoFrete:{
+    height: 50,
+    width: 100,
+},
+    textFrete:{
+    fontSize: 22,
+    padding:10,
+    color: 'white',
+    fontWeight: 'bold',
+    fontStyle: 'italic'
+},
+    textRegulamento:{
+    textAlign:'center',
+    fontFamily:'monospace',
+    fontStyle: 'italic',
+    fontWeight: 'bold',
+    fontSize: 10,
+    borderColor: "white",
+    borderWidth: 1,
+    padding:5,
+    color:'white'
+},
 })

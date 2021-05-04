@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {Button} from 'react-native-elements';
-import { View, StyleSheet, StatusBar, Text, KeyboardAvoidingView, Image, ImageBackground, TextInput, TouchableOpacity, ActivityIndicatorBase, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, StatusBar, Text, Image, ImageBackground, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {useNavigation} from '@react-navigation/core';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
 export interface CadastroScreenProps {
@@ -20,6 +21,9 @@ export function CadastroScreen (props: CadastroScreenProps) {
     return (
         <ImageBackground source={require('./../../assets/imagens/Img-fundo-app.jpg')} style={styles.imageBackground}>
         <StatusBar/>
+        <TouchableOpacity style={styles.header} onPress={() => nav.navigate('conta')}>
+          <MaterialIcons name='arrow-back' size={24}/>
+        </TouchableOpacity>
           <Formik
                 initialValues={{ nome: '', cpf: '', telefone: '', email: '',  senha: '' }}
                 validationSchema={Yup.object().shape({
@@ -58,58 +62,63 @@ export function CadastroScreen (props: CadastroScreenProps) {
     );
 }
 const styles = StyleSheet.create({
-    imageBackground:{
-      width:'100%',
-      height:'100%',
-      flex: 1,
-      alignItems:'center',
-      justifyContent:'center',
-    },
-     containerLogo:{
-      flex: 1,
-      justifyContent:'center',
-    },
-    logo:{
-      height: 180,
-      marginTop:-50
-    },
-    container:{
-      flex: 1,
-      alignItems:'center',
-      justifyContent:'center',
-      width: '90%',
-      paddingBottom: 150
-    },
-    input:{
-      backgroundColor:'#FFF',
-      width:'90%',
-      marginBottom: 15,
-      color:'#222',
-      fontSize: 17,
-      borderRadius: 7,
-      padding: 12
-    },
-    erro:{
-      color:'white',
-      textAlign:'right',
-      fontSize:15
-    },
-    Button:{
-      backgroundColor:'#35AAFF',
-      width:'90%',
-      height: 45,
-      alignItems:'center',
-      justifyContent:'center',
-      borderRadius: 7
-    },
-    submitText:{
-      color:'#FFF',
-      fontSize: 18
-    },
-    btnRegister:{
-      marginTop: 10
-    },
-    registerText:{
-      color:'#FFF'
-    },
-  })
+imageBackground:{
+  width:'100%',
+  height:'100%',
+  flex: 1,
+  alignItems:'center',
+  justifyContent:'center',
+},
+header:{
+  backgroundColor:'#003366',
+  padding: 18,
+  width:'100%'
+},
+  containerLogo:{
+  flex: 1,
+  justifyContent:'center',
+},
+logo:{
+  height: 180,
+  marginTop:-50
+},
+container:{
+  flex: 1,
+  alignItems:'center',
+  justifyContent:'center',
+  width: '90%',
+  paddingBottom: 150
+},
+input:{
+  backgroundColor:'#FFF',
+  width:'90%',
+  marginBottom: 15,
+  color:'#222',
+  fontSize: 17,
+  borderRadius: 7,
+  padding: 12
+},
+erro:{
+  color:'white',
+  textAlign:'right',
+  fontSize:15
+},
+Button:{
+  backgroundColor:'#35AAFF',
+  width:'90%',
+  height: 45,
+  alignItems:'center',
+  justifyContent:'center',
+  borderRadius: 7
+},
+submitText:{
+  color:'#FFF',
+  fontSize: 18
+},
+btnRegister:{
+  marginTop: 10
+},
+registerText:{
+  color:'#FFF'
+},
+})
