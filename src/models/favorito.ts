@@ -1,6 +1,6 @@
-export interface Favorito{
-    titulo: string,
-    id:string,
-    imagem: any,
-    preco: string
+export interface Favorito {
+  titulo: string;
+  id: string;
+  imagem: any;
+  preco: string;
 }

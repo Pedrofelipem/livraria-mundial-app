@@ -1,6 +1,6 @@
-export interface Produto{
-    titulo: string,
-    id:string,
-    imagem: any,
-    preco:string
+export interface Produto {
+  titulo: string;
+  id: string;
+  imagem: any;
+  preco: string;
 }

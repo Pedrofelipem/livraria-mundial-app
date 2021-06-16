@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "246233743477",
+    "firebase_url": "https://livraria-mundial-mobile-default-rtdb.firebaseio.com",
+    "project_id": "livraria-mundial-mobile",
+    "storage_bucket": "livraria-mundial-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246233743477:android:04b83de86bc2250af3f83c",
+        "android_client_info": {
+          "package_name": "br.com.mundial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246233743477-m4s2827f4radb0b720vel8655ejilcap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqeVGcbP0K5VcVpYvOlW2LmY5L15C28VE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246233743477-m4s2827f4radb0b720vel8655ejilcap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

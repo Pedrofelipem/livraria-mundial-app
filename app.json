@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "FuteSempre",
-    "slug": "FuteSempre",
+    "name": "LivrariaMundial",
+    "slug": "LivrariaMundial",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/imagens/logo-app.jpg",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -23,10 +23,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "config":{
+        "googleMobileAdsAppId":"ca-app-pub-1384872780907318~2124487657"
+      },
+      "package":"br.com.mundial",
+      "versionCode": 1,
+      "googleServicesFile":"./google-services.json"
+      },
+      "web": {
+        "favicon": "./assets/favicon.png"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
   }
 }
